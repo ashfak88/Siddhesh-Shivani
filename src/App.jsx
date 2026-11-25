@@ -477,7 +477,8 @@ function t_() {
                 animate: { opacity: 1 },
                 transition: { delay: 1.4, duration: 0.9 },
                 className: `text-ivory/60 mt-2 text-[0.7rem] tracking-[0.25em] uppercase`,
-                children: `Andheri East, Mumbai`,
+                style: { paddingLeft: `0.25em` },
+                children: `Lunch & Celebrations to follow!`,
               }),
             ],
           }),
@@ -572,39 +573,22 @@ function o_({ person: e, role: t, flip: n }) {
           },
         }),
         (0, O.jsxs)(`div`, {
-          className: `relative flex flex-col items-center text-center`,
+          className: `relative flex flex-col items-center justify-center text-center`,
+          style: { minHeight: 150, padding: `14px 0` },
           children: [
-            (0, O.jsxs)(`div`, {
-              className: `border-gold/40 relative grid place-items-center rounded-full border`,
-              style: {
-                width: 104,
-                height: 104,
-                background: `radial-gradient(circle at 50% 40%, oklch(0.93 0.05 88 / 0.55), transparent 72%)`,
-              },
-              children: [
-                (0, O.jsx)(`span`, {
-                  "aria-hidden": !0,
-                  className: `border-gold/30 absolute rounded-full border`,
-                  style: { inset: 7 },
-                }),
-                (0, O.jsx)(`span`, {
-                  "aria-hidden": !0,
-                  className: `font-script text-gold-foil`,
-                  style: { fontSize: `3.4rem`, lineHeight: 1, paddingTop: 6 },
-                  children: e.name[0],
-                }),
-              ],
-            }),
             (0, O.jsx)(`span`, {
-              className: `text-gold mt-5 text-[0.6rem] tracking-[0.45em] uppercase`,
+              className: `text-gold text-[0.6rem] tracking-[0.45em] uppercase`,
+              style: { paddingLeft: `0.45em` },
               children: t,
             }),
             (0, O.jsx)(`h3`, {
-              className: `text-primary mt-2 text-3xl font-light`,
+              className: `text-primary mt-3 text-3xl font-light`,
+              style: { lineHeight: 1.15 },
               children: e.fullName,
             }),
+            (0, O.jsx)(`span`, { className: `rule-gold my-4 w-20` }),
             (0, O.jsx)(`p`, {
-              className: `text-muted-foreground mt-1 text-xs tracking-wide`,
+              className: `text-muted-foreground text-xs tracking-wide`,
               children: e.line,
             }),
           ],
@@ -817,8 +801,252 @@ var m_ = [
   { icon: Qg, label: `The Occasion`, value: $.occasionLabel },
   { icon: Jg, label: `Day & Time`, value: $.timeLabel },
   { icon: Xg, label: `Venue`, value: `${$.venue.name}, ${$.venue.area}` },
-  { icon: ru, label: `After the rings`, value: `Lunch to follow` },
 ];
+var SONG = { id: `6zoKKPTzWUE`, title: `Dhaga Dhaga`, from: `Daagdi Chaawl` };
+var PlayIcon = Gg(`play`, [
+  [`polygon`, { points: `6 3 20 12 6 21 6 3`, key: `1oa8hb` }],
+]);
+var PauseIcon = Gg(`pause`, [
+  [`rect`, { x: `14`, y: `4`, width: `4`, height: `16`, rx: `1`, key: `zuxfzm` }],
+  [`rect`, { x: `6`, y: `4`, width: `4`, height: `16`, rx: `1`, key: `1okwgv` }],
+]);
+var ytApi;
+function loadYT() {
+  return (
+    ytApi ||
+    (ytApi = new Promise((res) => {
+      if (window.YT && window.YT.Player) return res(window.YT);
+      let prev = window.onYouTubeIframeAPIReady;
+      window.onYouTubeIframeAPIReady = () => {
+        prev && prev();
+        res(window.YT);
+      };
+      let s = document.createElement(`script`);
+      s.src = `https://www.youtube.com/iframe_api`;
+      document.head.appendChild(s);
+    }))
+  );
+}
+// One shared background-music player (YouTube IFrame API). It is created as
+// soon as the page loads, so a tap on the gate seal can start it instantly.
+var music = (() => {
+  let player = null,
+    ready = !1,
+    wantPlay = !1,
+    checkTimer = 0,
+    state = { playing: !1, blocked: !1 },
+    subs = new Set(),
+    set = (s) => {
+      state = { ...state, ...s };
+      subs.forEach((f) => f());
+    },
+    isRunning = () => {
+      let s = player?.getPlayerState?.();
+      return s === 1 || s === 3;
+    },
+    start = () => {
+      player.unMute();
+      player.setVolume(100);
+      player.playVideo();
+      clearTimeout(checkTimer);
+      // If the browser refused to start the audio, drop back to "tap to play".
+      checkTimer = setTimeout(() => {
+        wantPlay && !isRunning() && set({ playing: !1, blocked: !0 });
+      }, 3500);
+    };
+  return {
+    mount() {
+      if (player || typeof document > `u`) return;
+      player = `loading`;
+      let box = document.createElement(`div`);
+      box.setAttribute(`aria-hidden`, `true`);
+      Object.assign(box.style, {
+        position: `fixed`,
+        left: `0`,
+        bottom: `0`,
+        width: `200px`,
+        height: `200px`,
+        opacity: `0`,
+        pointerEvents: `none`,
+        zIndex: `-1`,
+        overflow: `hidden`,
+      });
+      let host = document.createElement(`div`);
+      box.appendChild(host);
+      document.body.appendChild(box);
+      loadYT().then((YT) => {
+        player = new YT.Player(host, {
+          videoId: SONG.id,
+          width: 200,
+          height: 200,
+          playerVars: {
+            playsinline: 1,
+            controls: 0,
+            rel: 0,
+            loop: 1,
+            playlist: SONG.id,
+          },
+          events: {
+            onReady: () => {
+              ready = !0;
+              wantPlay && start();
+            },
+            onError: () => set({ playing: !1, blocked: !0 }),
+            onStateChange: (e) => {
+              if (e.data === 1) set({ playing: !0, blocked: !1 });
+              else if (e.data === 2) set({ playing: !1 });
+              else if (e.data === 0 && wantPlay) player.playVideo();
+            },
+          },
+        });
+      });
+    },
+    play() {
+      wantPlay = !0;
+      set({ playing: !0 });
+      ready ? start() : this.mount();
+    },
+    pause() {
+      wantPlay = !1;
+      clearTimeout(checkTimer);
+      ready && player.pauseVideo();
+      set({ playing: !1 });
+    },
+    toggle() {
+      state.playing ? this.pause() : this.play();
+    },
+    subscribe: (f) => (subs.add(f), () => subs.delete(f)),
+    get: () => state,
+  };
+})();
+function useMusic() {
+  return (0, b.useSyncExternalStore)(music.subscribe, music.get, music.get);
+}
+var MusicNote = Gg(`music`, [
+  [`path`, { d: `M9 18V5l12-2v13`, key: `1jmyc2` }],
+  [`circle`, { cx: `6`, cy: `18`, r: `3`, key: `fqmcym` }],
+  [`circle`, { cx: `18`, cy: `16`, r: `3`, key: `1hluhg` }],
+]);
+function MusicFab() {
+  let { playing: p } = useMusic();
+  return (0, O.jsxs)(Q.button, {
+    type: `button`,
+    onClick: () => music.toggle(),
+    "aria-label": p ? `Pause music` : `Play music`,
+    "data-music": p ? `playing` : `paused`,
+    initial: { opacity: 0, scale: 0.6 },
+    animate: { opacity: 1, scale: 1 },
+    transition: { delay: 1.2, type: `spring`, stiffness: 220, damping: 16 },
+    whileTap: { scale: 0.9 },
+    className: `text-emerald-ink shadow-gold fixed z-40 grid place-items-center rounded-full`,
+    style: {
+      right: 16,
+      bottom: `calc(18px + env(safe-area-inset-bottom))`,
+      width: 46,
+      height: 46,
+      backgroundImage: `var(--gradient-gold)`,
+    },
+    children: [
+      (0, O.jsx)(Q.span, {
+        "aria-hidden": !0,
+        className: `absolute inset-0 rounded-full`,
+        style: { border: `1.5px dashed var(--emerald-ink)`, opacity: 0.35, margin: 4 },
+        animate: p ? { rotate: 360 } : { rotate: 0 },
+        transition: p
+          ? { repeat: 1 / 0, duration: 8, ease: `linear` }
+          : { duration: 0.4 },
+      }),
+      p &&
+        (0, O.jsx)(Q.span, {
+          "aria-hidden": !0,
+          className: `border-gold/40 absolute inset-0 rounded-full border`,
+          animate: { scale: [1, 1.5], opacity: [0.9, 0] },
+          transition: { repeat: 1 / 0, duration: 1.8, ease: `easeOut` },
+        }),
+      (0, O.jsx)(p ? PauseIcon : MusicNote, {
+        size: 17,
+        strokeWidth: 2,
+        fill: p ? `currentColor` : `none`,
+      }),
+    ],
+  });
+}
+function SongRow() {
+  let { playing } = useMusic(),
+    toggle = () => music.toggle();
+  return (0, O.jsxs)(Q.button, {
+    type: `button`,
+    onClick: toggle,
+    whileTap: { scale: 0.98 },
+    "aria-label": `${playing ? `Pause` : `Play`} ${SONG.title}`,
+    className: `relative flex w-full items-center gap-4 px-6 py-4`,
+    style: { textAlign: `left` },
+    children: [
+      (0, O.jsxs)(`span`, {
+        className: `text-emerald-ink shadow-gold relative grid h-10 w-10 shrink-0 place-items-center rounded-full`,
+        style: { backgroundImage: `var(--gradient-gold)` },
+        children: [
+          playing &&
+            (0, O.jsx)(Q.span, {
+              className: `border-gold/40 absolute inset-0 rounded-full border`,
+              animate: { scale: [1, 1.45], opacity: [0.8, 0] },
+              transition: { repeat: 1 / 0, duration: 1.6, ease: `easeOut` },
+            }),
+          (0, O.jsx)(playing ? PauseIcon : PlayIcon, {
+            size: 15,
+            fill: `currentColor`,
+            style: playing ? void 0 : { marginLeft: 2 },
+          }),
+        ],
+      }),
+      (0, O.jsxs)(`div`, {
+        className: `min-w-0`,
+        style: { flex: 1 },
+        children: [
+          (0, O.jsx)(`p`, {
+            className: `text-muted-foreground text-[0.6rem] tracking-[0.3em] uppercase`,
+            children: playing ? `Now playing` : `Our song · tap to play`,
+          }),
+          (0, O.jsxs)(`p`, {
+            className: `text-foreground truncate text-sm`,
+            children: [
+              SONG.title,
+              (0, O.jsxs)(`span`, {
+                className: `text-muted-foreground`,
+                children: [` · `, SONG.from],
+              }),
+            ],
+          }),
+        ],
+      }),
+      (0, O.jsx)(`span`, {
+        "aria-hidden": !0,
+        style: { display: `flex`, alignItems: `flex-end`, gap: 3, height: 18 },
+        children: [0.9, 0.5, 1, 0.65].map((h, i) =>
+          (0, O.jsx)(
+            Q.span,
+            {
+              style: {
+                width: 3,
+                height: 18,
+                borderRadius: 2,
+                background: `var(--gold)`,
+                originY: 1,
+              },
+              animate: playing
+                ? { scaleY: [h * 0.35, h, h * 0.5, h * 0.9, h * 0.35] }
+                : { scaleY: h * 0.3 },
+              transition: playing
+                ? { repeat: 1 / 0, duration: 1 + i * 0.18, ease: `easeInOut` }
+                : { duration: 0.3 },
+            },
+            i,
+          ),
+        ),
+      }),
+    ],
+  });
+}
 function h_() {
   return (0, O.jsx)(`section`, {
     className: `relative px-5 py-20`,
@@ -863,7 +1091,7 @@ function h_() {
               }),
               (0, O.jsx)(`div`, {
                 className: `divide-gold/15 divide-y`,
-                children: m_.map(({ icon: e, label: t, value: n }) =>
+                children: [...m_.map(({ icon: e, label: t, value: n }) =>
                   (0, O.jsxs)(
                     `div`,
                     {
@@ -890,7 +1118,7 @@ function h_() {
                     },
                     t,
                   ),
-                ),
+                ), (0, O.jsx)(SongRow, {}, `song`)],
               }),
               (0, O.jsx)(`div`, {
                 className: `px-6 pt-2 pb-6`,
@@ -1170,7 +1398,11 @@ function g_() {
               }),
               (0, O.jsx)(`p`, {
                 className: `text-ivory/70 mx-auto mt-5 max-w-sm text-sm leading-relaxed`,
-                children: `Your presence and blessings are the only gifts we ask for. Join us as we exchange rings, and stay on for lunch — we have saved a seat for you.`,
+                children: [
+                  `A new chapter, a special day, and the people we love around us.`,
+                  (0, O.jsx)(`br`, {}),
+                  `We warmly invite you to join us in celebrating this beautiful occasion and sharing in our happiness!`,
+                ],
               }),
             ],
           }),
@@ -1289,7 +1521,7 @@ function __({ onOpen: e }) {
               (0, O.jsx)(`span`, { className: `rule-gold mt-6 w-32` }),
               (0, O.jsxs)(Q.button, {
                 onClick: () => {
-                  t || (n(!0), window.setTimeout(e, 1500));
+                  t || (music.play(), n(!0), window.setTimeout(e, 1500));
                 },
                 whileTap: { scale: 0.92 },
                 whileHover: { scale: 1.05 },
@@ -1351,6 +1583,7 @@ function v_() {
 }
 function S_() {
   let [e, t] = (0, b.useState)(!1);
+  (0, b.useEffect)(() => music.mount(), []);
   return (
     (0, b.useEffect)(
       () => (
@@ -1367,6 +1600,7 @@ function S_() {
           children: !e && (0, O.jsx)(__, { onOpen: () => t(!0) }, `opener`),
         }),
         e && (0, O.jsx)(v_, {}),
+        e && (0, O.jsx)(MusicFab, {}),
         (0, O.jsxs)(Q.main, {
           initial: { opacity: 0, scale: 1.03 },
           animate: e ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.03 },
@@ -1377,7 +1611,6 @@ function S_() {
             (0, O.jsx)(s_, {}),
             (0, O.jsx)(d_, {}),
             (0, O.jsx)(h_, {}),
-            (0, O.jsx)(L_, {}),
             (0, O.jsx)(g_, {}),
           ],
         }),

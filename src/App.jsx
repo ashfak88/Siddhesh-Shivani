@@ -145,7 +145,7 @@ function $g({ className: e = ``, intensity: t = 1 }) {
       (0, O.jsx)(`div`, {
         className: `absolute -top-1/3 left-[-20%] h-[80%] w-[90%] rounded-full blur-3xl`,
         style: {
-          background: `radial-gradient(circle at 50% 50%, oklch(0.55 0.13 160 / 0.55), transparent 65%)`,
+          background: `radial-gradient(circle at 50% 50%, oklch(0.5 0.14 265 / 0.6), transparent 65%)`,
           animation: `aurora-drift 18s ease-in-out infinite`,
         },
       }),
@@ -159,7 +159,7 @@ function $g({ className: e = ``, intensity: t = 1 }) {
       (0, O.jsx)(`div`, {
         className: `absolute bottom-[-25%] left-[10%] h-[70%] w-[80%] rounded-full blur-3xl`,
         style: {
-          background: `radial-gradient(circle at 50% 50%, oklch(0.52 0.16 18 / 0.4), transparent 65%)`,
+          background: `radial-gradient(circle at 50% 50%, oklch(0.78 0.08 40 / 0.35), transparent 65%)`,
           animation: `aurora-drift 30s ease-in-out infinite`,
         },
       }),
@@ -190,7 +190,7 @@ function e_({ count: e = 14, burst: t = !1 }) {
           hue:
             Math.random() > 0.5
               ? `oklch(0.78 0.115 85)`
-              : `oklch(0.62 0.13 18)`,
+              : `oklch(0.86 0.06 40)`,
           opacity: 0.35 + Math.random() * 0.45,
         })),
       [e, t],
@@ -223,30 +223,157 @@ function e_({ count: e = 14, burst: t = !1 }) {
 }
 var $ = {
   groom: {
-    name: `Aarav`,
-    fullName: `Aarav Menon`,
-    line: `Son of Mr. Ramesh & Mrs. Latha Menon`,
-    note: `An architect who sketches temples on café napkins and believes every good story starts with chai.`,
-    image: `/images/groom.png`,
+    name: `Siddhesh`,
+    fullName: `Siddhesh Bhikaji More`,
+    line: `Son of Mr. Bhikaji Sajanaji More`,
   },
   bride: {
-    name: `Diya`,
-    fullName: `Diya Nair`,
-    line: `Daughter of Mr. Suresh & Mrs. Anjali Nair`,
-    note: `A Bharatanatyam dancer and pediatrician who hums old Malayalam songs while she works.`,
-    image: `/images/bride.png`,
+    name: `Shivani`,
+    fullName: `Shivani Prakash Sable`,
+    line: `Daughter of Mr. Prakash Mahadu Sable`,
   },
-  dateISO: `2026-12-10T18:30:00+05:30`,
-  endISO: `2026-12-10T22:00:00+05:30`,
-  dateLabel: `Thursday, 10 December 2026`,
-  timeLabel: `6:30 PM onwards`,
-  muhurthamLabel: `Muhurtham · 7:15 PM`,
+  dateISO: `2026-12-12T10:00:00+05:30`,
+  endISO: `2026-12-12T15:00:00+05:30`,
+  dateLabel: `Saturday, 12 December 2026`,
+  timeLabel: `Saturday · 10:00 AM onwards`,
+  occasionLabel: `Engagement Ceremony`,
   venue: {
-    name: `Taj Malabar Resort & Spa`,
-    address: `Willingdon Island, Kochi, Kerala 682009`,
-    mapUrl: `https://www.google.com/maps/search/?api=1&query=Taj+Malabar+Resort+%26+Spa+Willingdon+Island+Kochi`,
+    name: `Sai Palace Hotel`,
+    area: `Andheri East`,
+    address: `Mahakali Caves Road, Chakala, Andheri East, Mumbai`,
+    mapUrl: `https://maps.app.goo.gl/pE2ExRpyNnppwiAp9?g_st=ic`,
   },
 };
+var ru = Gg(`utensils`, [
+  [`path`, { d: `M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2`, key: `cjf0a3` }],
+  [`path`, { d: `M7 2v20`, key: `1473qp` }],
+  [
+    `path`,
+    { d: `M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7`, key: `j28e5` },
+  ],
+]);
+function Rings() {
+  let d = (t) => ({ duration: 1.6, delay: t, ease: [0.65, 0, 0.35, 1] });
+  return (0, O.jsxs)(Q.svg, {
+    viewBox: `0 0 240 190`,
+    role: `img`,
+    "aria-label": `Two interlocked engagement rings`,
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+    transition: { delay: 0.7, duration: 1.2, ease: [0.22, 1, 0.36, 1] },
+    className: `mt-auto drop-shadow-[0_24px_40px_rgba(0,0,0,0.35)]`,
+    style: { width: `78%`, maxWidth: 300, marginBottom: `5.5rem` },
+    children: [
+      (0, O.jsx)(`defs`, {
+        children: (0, O.jsxs)(`linearGradient`, {
+          id: `ringGold`,
+          x1: `0`,
+          y1: `0`,
+          x2: `1`,
+          y2: `1`,
+          children: [
+            (0, O.jsx)(`stop`, { offset: `0%`, stopColor: `#b8892f` }),
+            (0, O.jsx)(`stop`, { offset: `45%`, stopColor: `#f7e6a6` }),
+            (0, O.jsx)(`stop`, { offset: `100%`, stopColor: `#c49a3c` }),
+          ],
+        }),
+      }),
+      (0, O.jsx)(`ellipse`, {
+        cx: 120,
+        cy: 178,
+        rx: 80,
+        ry: 6,
+        fill: `oklch(0.93 0.05 88 / 0.18)`,
+      }),
+      (0, O.jsx)(Q.circle, {
+        cx: 145,
+        cy: 112,
+        r: 55,
+        fill: `none`,
+        stroke: `url(#ringGold)`,
+        strokeWidth: 7,
+        initial: { pathLength: 0 },
+        animate: { pathLength: 1 },
+        transition: d(1),
+      }),
+      (0, O.jsx)(Q.circle, {
+        cx: 95,
+        cy: 112,
+        r: 55,
+        fill: `none`,
+        stroke: `url(#ringGold)`,
+        strokeWidth: 7,
+        initial: { pathLength: 0 },
+        animate: { pathLength: 1 },
+        transition: d(1.25),
+      }),
+      (0, O.jsxs)(Q.g, {
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        transition: { delay: 2.7, duration: 0.5 },
+        children: [
+          (0, O.jsx)(`path`, {
+            d: `M108.2 71.1 A55 55 0 0 1 133.6 58.2`,
+            fill: `none`,
+            stroke: `oklch(0.2 0.06 268 / 0.28)`,
+            strokeWidth: 9.5,
+          }),
+          (0, O.jsx)(`path`, {
+            d: `M108.2 71.1 A55 55 0 0 1 133.6 58.2`,
+            fill: `none`,
+            stroke: `url(#ringGold)`,
+            strokeWidth: 7,
+          }),
+        ],
+      }),
+      (0, O.jsxs)(Q.g, {
+        initial: { opacity: 0, y: -14, scale: 0.6 },
+        animate: { opacity: 1, y: 0, scale: 1 },
+        transition: { delay: 2.9, type: `spring`, stiffness: 180, damping: 12 },
+        style: { originX: `95px`, originY: `50px` },
+        children: [
+          (0, O.jsx)(`path`, {
+            d: `M82 43 L89 34 L101 34 L108 43 L95 59 Z`,
+            fill: `oklch(0.97 0.02 250)`,
+            stroke: `#e3c36f`,
+            strokeWidth: 1.5,
+            strokeLinejoin: `round`,
+          }),
+          (0, O.jsx)(`path`, {
+            d: `M82 43 H108 M89 34 L95 43 L101 34 M95 43 V59`,
+            fill: `none`,
+            stroke: `#e3c36f`,
+            strokeWidth: 1,
+          }),
+        ],
+      }),
+      [
+        [60, 40, 0],
+        [186, 50, 0.5],
+        [204, 120, 1],
+        [34, 132, 1.5],
+      ].map(([x, y, t]) =>
+        (0, O.jsx)(
+          Q.path,
+          {
+            d: `M${x} ${y - 7} L${x + 2} ${y - 2} L${x + 7} ${y} L${x + 2} ${y + 2} L${x} ${y + 7} L${x - 2} ${y + 2} L${x - 7} ${y} L${x - 2} ${y - 2} Z`,
+            fill: `#f3dc96`,
+            initial: { opacity: 0, scale: 0.4 },
+            animate: { opacity: [0, 1, 0.3, 1], scale: [0.4, 1, 0.8, 1] },
+            transition: {
+              delay: 3 + t,
+              duration: 2.4,
+              repeat: 1 / 0,
+              repeatType: `reverse`,
+            },
+            style: { originX: `${x}px`, originY: `${y}px` },
+          },
+          x,
+        ),
+      ),
+    ],
+  });
+}
 function t_() {
   let e = (0, b.useRef)(null),
     { scrollYProgress: t } = kg({
@@ -262,7 +389,8 @@ function t_() {
     c = Ng(n, [0, 1], [1, 1.12]);
   return (0, O.jsxs)(`section`, {
     ref: e,
-    className: `bg-emerald-deep relative flex h-[100svh] min-h-[640px] w-full flex-col items-center overflow-hidden`,
+    className: `bg-emerald-deep relative flex w-full flex-col items-center overflow-hidden`,
+    style: { minHeight: `max(100svh, 640px)` },
     children: [
       (0, O.jsx)($g, { intensity: 1 }),
       (0, O.jsx)(`div`, {
@@ -272,7 +400,7 @@ function t_() {
         "aria-hidden": !0,
         style: {
           y: r,
-          background: `radial-gradient(ellipse at 50% 80%, oklch(0.93 0.05 92 / 0.55), transparent 62%)`,
+          background: `radial-gradient(ellipse at 50% 80%, oklch(0.82 0.1 80 / 0.22), transparent 62%)`,
         },
         className: `absolute bottom-0 left-1/2 h-[62%] w-[130%] -translate-x-1/2 rounded-t-full blur-2xl`,
       }),
@@ -285,7 +413,8 @@ function t_() {
         className: `pointer-events-none absolute -top-2 left-1/2 w-[135%] max-w-none -translate-x-1/2 opacity-90`,
       }),
       (0, O.jsxs)(`div`, {
-        className: `relative z-10 mx-auto flex w-full max-w-md flex-1 flex-col items-center px-6 pt-32 text-center`,
+        className: `relative z-10 mx-auto flex w-full max-w-md flex-1 flex-col items-center px-6 text-center`,
+        style: { paddingTop: `calc(min(100vw, 520px) * 0.45 + 14px)` },
         children: [
           (0, O.jsxs)(Q.div, {
             style: { y: a, opacity: o },
@@ -331,29 +460,31 @@ function t_() {
               (0, O.jsx)(Q.p, {
                 initial: { opacity: 0, y: 14 },
                 animate: { opacity: 1, y: 0 },
-                transition: { delay: 1.15, duration: 0.9 },
+                transition: { delay: 1.1, duration: 0.9 },
+                className: `font-script text-gold-foil mt-5 text-3xl`,
+                style: { padding: `0 0.25em 0.1em` },
+                children: `are getting engaged`,
+              }),
+              (0, O.jsx)(Q.p, {
+                initial: { opacity: 0, y: 14 },
+                animate: { opacity: 1, y: 0 },
+                transition: { delay: 1.25, duration: 0.9 },
                 className: `text-ivory/85 mt-5 text-sm tracking-[0.35em] uppercase`,
-                children: `10 · 12 · 2026`,
+                children: `12 · 12 · 2026`,
               }),
               (0, O.jsx)(Q.p, {
                 initial: { opacity: 0 },
                 animate: { opacity: 1 },
-                transition: { delay: 1.35, duration: 0.9 },
+                transition: { delay: 1.4, duration: 0.9 },
                 className: `text-ivory/60 mt-2 text-[0.7rem] tracking-[0.25em] uppercase`,
-                children: `Kochi, Kerala`,
+                children: `Andheri East, Mumbai`,
               }),
             ],
           }),
-          (0, O.jsx)(Q.img, {
-            src: `/images/couple-hero.png`,
-            alt: `Watercolour illustration of the couple`,
-            width: 1024,
-            height: 1408,
-            initial: { opacity: 0, y: 40, scale: 0.96 },
-            animate: { opacity: 1, y: 0, scale: 1 },
-            transition: { delay: 0.7, duration: 1.3, ease: [0.22, 1, 0.36, 1] },
+          (0, O.jsx)(Q.div, {
             style: { y: s, scale: c },
-            className: `mt-auto w-[88%] max-w-[350px] brightness-110 contrast-105 drop-shadow-[0_24px_40px_rgba(0,0,0,0.35)]`,
+            className: `mt-auto flex w-full flex-col items-center`,
+            children: (0, O.jsx)(Rings, {}),
           }),
         ],
       }),
@@ -443,16 +574,26 @@ function o_({ person: e, role: t, flip: n }) {
         (0, O.jsxs)(`div`, {
           className: `relative flex flex-col items-center text-center`,
           children: [
-            (0, O.jsx)(`div`, {
-              className: `from-gold/25 relative h-40 w-40 overflow-hidden rounded-full bg-gradient-to-b to-transparent`,
-              children: (0, O.jsx)(`img`, {
-                src: e.image,
-                alt: e.fullName,
-                loading: `lazy`,
-                width: 768,
-                height: 896,
-                className: `h-full w-full object-cover object-top ${n ? `scale-x-[-1]` : ``}`,
-              }),
+            (0, O.jsxs)(`div`, {
+              className: `border-gold/40 relative grid place-items-center rounded-full border`,
+              style: {
+                width: 104,
+                height: 104,
+                background: `radial-gradient(circle at 50% 40%, oklch(0.93 0.05 88 / 0.55), transparent 72%)`,
+              },
+              children: [
+                (0, O.jsx)(`span`, {
+                  "aria-hidden": !0,
+                  className: `border-gold/30 absolute rounded-full border`,
+                  style: { inset: 7 },
+                }),
+                (0, O.jsx)(`span`, {
+                  "aria-hidden": !0,
+                  className: `font-script text-gold-foil`,
+                  style: { fontSize: `3.4rem`, lineHeight: 1, paddingTop: 6 },
+                  children: e.name[0],
+                }),
+              ],
             }),
             (0, O.jsx)(`span`, {
               className: `text-gold mt-5 text-[0.6rem] tracking-[0.45em] uppercase`,
@@ -465,11 +606,6 @@ function o_({ person: e, role: t, flip: n }) {
             (0, O.jsx)(`p`, {
               className: `text-muted-foreground mt-1 text-xs tracking-wide`,
               children: e.line,
-            }),
-            (0, O.jsx)(`span`, { className: `rule-gold my-4 w-20` }),
-            (0, O.jsx)(`p`, {
-              className: `text-foreground/75 text-sm leading-relaxed`,
-              children: e.note,
             }),
           ],
         }),
@@ -504,11 +640,11 @@ function s_() {
               (0, O.jsx)(a_, { label: `The Couple` }),
               (0, O.jsx)(`h2`, {
                 className: `text-primary mt-5 text-4xl font-light`,
-                children: `Two hearts, one thread`,
+                children: `Two families, one promise`,
               }),
               (0, O.jsx)(`p`, {
                 className: `text-muted-foreground mx-auto mt-3 max-w-xs text-sm leading-relaxed`,
-                children: `Seven vows, seven steps, and a lifetime of ordinary mornings made beautiful.`,
+                children: `With the blessings of our elders, we exchange rings and begin the first chapter of forever.`,
               }),
             ],
           }),
@@ -615,10 +751,11 @@ function d_() {
                 (0, O.jsxs)(`h2`, {
                   className: `text-ivory mt-5 text-4xl font-light`,
                   children: [
-                    `Until we say `,
+                    `Until we make it `,
                     (0, O.jsx)(`span`, {
                       className: `font-script text-gold-foil`,
-                      children: `forever`,
+                      style: { paddingRight: `0.2em` },
+                      children: `official`,
                     }),
                   ],
                 }),
@@ -640,7 +777,7 @@ function d_() {
               delay: 0.2,
               children: (0, O.jsx)(`p`, {
                 className: `text-ivory/55 mt-6 text-xs tracking-[0.25em] uppercase`,
-                children: $.dateLabel,
+                children: `${$.dateLabel} · 10:00 AM`,
               }),
             }),
           ],
@@ -656,15 +793,15 @@ function p_() {
   let e = [
       `BEGIN:VCALENDAR`,
       `VERSION:2.0`,
-      `PRODID:-//Wedding Invite//EN`,
+      `PRODID:-//Engagement Invite//EN`,
       `BEGIN:VEVENT`,
-      `UID:${Date.now()}@wedding`,
+      `UID:${Date.now()}@engagement`,
       `DTSTAMP:${f_(new Date().toISOString())}`,
       `DTSTART:${f_($.dateISO)}`,
       `DTEND:${f_($.endISO)}`,
-      `SUMMARY:${$.groom.name} & ${$.bride.name} — Wedding`,
-      `LOCATION:${$.venue.name}, ${$.venue.address}`,
-      `DESCRIPTION:With love, we invite you to our wedding.`,
+      `SUMMARY:${$.groom.name} & ${$.bride.name} — Engagement`,
+      `LOCATION:${$.venue.name}\\, ${$.venue.address.replace(/,/g, `\\,`)}`,
+      `DESCRIPTION:Engagement ceremony at 10:00 AM. Lunch to follow.\\n${$.venue.mapUrl}`,
       `END:VEVENT`,
       `END:VCALENDAR`,
     ].join(`\r
@@ -672,14 +809,15 @@ function p_() {
     t = URL.createObjectURL(new Blob([e], { type: `text/calendar` })),
     n = document.createElement(`a`);
   ((n.href = t),
-    (n.download = `our-wedding.ics`),
+    (n.download = `siddhesh-shivani-engagement.ics`),
     n.click(),
     URL.revokeObjectURL(t));
 }
 var m_ = [
-  { icon: Qg, label: `The Ceremony`, value: $.muhurthamLabel },
-  { icon: Jg, label: `Time`, value: $.timeLabel },
-  { icon: Xg, label: `Venue`, value: $.venue.name },
+  { icon: Qg, label: `The Occasion`, value: $.occasionLabel },
+  { icon: Jg, label: `Day & Time`, value: $.timeLabel },
+  { icon: Xg, label: `Venue`, value: `${$.venue.name}, ${$.venue.area}` },
+  { icon: ru, label: `After the rings`, value: `Lunch to follow` },
 ];
 function h_() {
   return (0, O.jsx)(`section`, {
@@ -693,7 +831,7 @@ function h_() {
             (0, O.jsx)(a_, { label: `When & Where` }),
             (0, O.jsx)(`h2`, {
               className: `text-primary mt-5 text-4xl font-light`,
-              children: `The celebration`,
+              children: `The ring ceremony`,
             }),
           ],
         }),
@@ -711,11 +849,15 @@ function h_() {
                   }),
                   (0, O.jsx)(`p`, {
                     className: `text-ivory font-display mt-2 text-5xl font-light`,
-                    children: `10`,
+                    children: `12`,
                   }),
                   (0, O.jsx)(`p`, {
                     className: `text-ivory/85 text-sm tracking-[0.35em] uppercase`,
                     children: `December 2026`,
+                  }),
+                  (0, O.jsx)(`p`, {
+                    className: `text-gold/80 mt-2 text-[0.6rem] tracking-[0.45em] uppercase`,
+                    children: `Saturday`,
                   }),
                 ],
               }),
@@ -794,7 +936,7 @@ function h_() {
                     children: $.venue.name,
                   }),
                   (0, O.jsx)(`p`, {
-                    className: `text-muted-foreground mt-1 text-xs`,
+                    className: `text-muted-foreground mx-auto mt-1 max-w-xs text-xs leading-relaxed`,
                     children: $.venue.address,
                   }),
                   (0, O.jsxs)(Q.a, {
@@ -809,6 +951,175 @@ function h_() {
                     ],
                   }),
                 ],
+              }),
+            ],
+          }),
+        }),
+      ],
+    }),
+  });
+}
+var lunchMenu = [
+  { n: `I`, title: `A warm welcome`, note: `10:00 AM` },
+  { n: `II`, title: `The rings`, note: `with your blessings` },
+  { n: `III`, title: `Lunch`, note: `to follow` },
+];
+function LunchStamp() {
+  return (0, O.jsxs)(`div`, {
+    className: `relative`,
+    style: { width: 118, height: 118 },
+    children: [
+      (0, O.jsxs)(Q.svg, {
+        viewBox: `0 0 120 120`,
+        "aria-hidden": !0,
+        className: `absolute inset-0`,
+        animate: { rotate: 360 },
+        transition: { repeat: 1 / 0, duration: 26, ease: `linear` },
+        children: [
+          (0, O.jsx)(`circle`, {
+            cx: 60,
+            cy: 60,
+            r: 58,
+            fill: `var(--card)`,
+            stroke: `var(--gold)`,
+            strokeWidth: 1.5,
+          }),
+          (0, O.jsx)(`circle`, {
+            cx: 60,
+            cy: 60,
+            r: 54,
+            fill: `none`,
+            stroke: `var(--gold)`,
+            strokeWidth: 0.6,
+            strokeDasharray: `2 3`,
+          }),
+          (0, O.jsx)(`path`, {
+            id: `stampRing`,
+            d: `M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0`,
+            fill: `none`,
+          }),
+          (0, O.jsx)(`text`, {
+            fill: `var(--primary)`,
+            style: {
+              fontFamily: `Jost, sans-serif`,
+              fontSize: 9.5,
+              fontWeight: 500,
+            },
+            children: (0, O.jsx)(`textPath`, {
+              href: `#stampRing`,
+              textLength: 268,
+              lengthAdjust: `spacing`,
+              children: `LUNCH TO FOLLOW ✦ LUNCH TO FOLLOW ✦`,
+            }),
+          }),
+        ],
+      }),
+      (0, O.jsx)(`div`, {
+        className: `text-primary absolute grid place-items-center rounded-full`,
+        style: {
+          inset: 31,
+          backgroundImage: `var(--gradient-gold)`,
+        },
+        children: (0, O.jsx)(ru, { size: 24, strokeWidth: 1.6 }),
+      }),
+    ],
+  });
+}
+function L_() {
+  return (0, O.jsx)(`section`, {
+    className: `relative overflow-hidden px-5`,
+    style: { paddingBottom: 80 },
+    children: (0, O.jsxs)(`div`, {
+      className: `mx-auto max-w-md`,
+      children: [
+        (0, O.jsxs)(i_, {
+          className: `text-center`,
+          children: [
+            (0, O.jsx)(a_, { label: `On the menu` }),
+            (0, O.jsxs)(`h2`, {
+              className: `text-primary mt-5 text-4xl font-light`,
+              children: [
+                `Rings first, `,
+                (0, O.jsx)(`span`, {
+                  className: `font-script text-gold`,
+                  children: `then lunch`,
+                }),
+              ],
+            }),
+          ],
+        }),
+        (0, O.jsx)(i_, {
+          delay: 0.1,
+          children: (0, O.jsxs)(`div`, {
+            className: `border-gold/30 bg-card shadow-luxe relative rounded-[2rem] border px-6 text-center`,
+            style: { marginTop: 84, paddingTop: 76, paddingBottom: 32 },
+            children: [
+              (0, O.jsx)(`div`, {
+                className: `absolute left-1/2 -translate-x-1/2`,
+                style: { top: -59 },
+                children: (0, O.jsx)(LunchStamp, {}),
+              }),
+              (0, O.jsx)(`div`, {
+                "aria-hidden": !0,
+                className: `border-gold/30 pointer-events-none absolute border`,
+                style: { inset: 8, borderRadius: `1.5rem` },
+              }),
+              (0, O.jsx)(`p`, {
+                className: `text-muted-foreground text-[0.6rem] tracking-[0.45em] uppercase`,
+                children: `Saturday · 12 December`,
+              }),
+              (0, O.jsx)(`div`, {
+                className: `mt-6`,
+                style: { display: `grid`, gap: 18 },
+                children: lunchMenu.map((e, t) =>
+                  (0, O.jsxs)(
+                    Q.div,
+                    {
+                      initial: { opacity: 0, x: -16 },
+                      whileInView: { opacity: 1, x: 0 },
+                      viewport: { once: !0, amount: 0.6 },
+                      transition: { delay: 0.15 + t * 0.15, duration: 0.7 },
+                      style: { display: `flex`, alignItems: `baseline`, gap: 10 },
+                      children: [
+                        (0, O.jsx)(`span`, {
+                          className: `font-display text-gold text-sm`,
+                          style: { width: 26, textAlign: `left` },
+                          children: e.n,
+                        }),
+                        (0, O.jsx)(`span`, {
+                          className: `font-display text-primary text-xl`,
+                          style: { whiteSpace: `nowrap` },
+                          children: e.title,
+                        }),
+                        (0, O.jsx)(`span`, {
+                          "aria-hidden": !0,
+                          style: {
+                            flex: 1,
+                            minWidth: 12,
+                            borderBottom: `1.5px dotted var(--gold)`,
+                            transform: `translateY(-4px)`,
+                          },
+                        }),
+                        (0, O.jsx)(`span`, {
+                          className: `text-muted-foreground text-xs`,
+                          style: { whiteSpace: `nowrap`, fontStyle: `italic` },
+                          children: e.note,
+                        }),
+                      ],
+                    },
+                    e.n,
+                  ),
+                ),
+              }),
+              (0, O.jsx)(`span`, { className: `rule-gold mx-auto mt-8 block w-28` }),
+              (0, O.jsx)(`p`, {
+                className: `font-script text-gold mt-5`,
+                style: { fontSize: `1.7rem`, lineHeight: 1.25, textWrap: `balance` },
+                children: `Come for the rings, stay for the feast`,
+              }),
+              (0, O.jsx)(`p`, {
+                className: `text-muted-foreground mx-auto mt-3 max-w-xs text-xs leading-relaxed`,
+                children: `Lunch will be served at ${$.venue.name} right after the ceremony. Please do join us at the table.`,
               }),
             ],
           }),
@@ -859,7 +1170,7 @@ function g_() {
               }),
               (0, O.jsx)(`p`, {
                 className: `text-ivory/70 mx-auto mt-5 max-w-sm text-sm leading-relaxed`,
-                children: `Your presence is the only gift we ask for. Bring your laughter, your appetite and your dancing shoes — we have saved a seat, and a story, for you.`,
+                children: `Your presence and blessings are the only gifts we ask for. Join us as we exchange rings, and stay on for lunch — we have saved a seat for you.`,
               }),
             ],
           }),
@@ -884,7 +1195,7 @@ function g_() {
                 }),
                 (0, O.jsx)(`p`, {
                   className: `text-ivory/50 mt-2 text-[0.6rem] tracking-[0.4em] uppercase`,
-                  children: `10 · 12 · 2026 · Kochi`,
+                  children: `12 · 12 · 2026 · Mumbai`,
                 }),
               ],
             }),
@@ -956,17 +1267,23 @@ function __({ onOpen: e }) {
             children: [
               (0, O.jsx)(`span`, {
                 className: `text-gold/80 text-[0.55rem] tracking-[0.5em] uppercase`,
-                children: `A wedding invitation`,
+                children: `An engagement invitation`,
               }),
               (0, O.jsxs)(`h1`, {
-                className: `text-gold-foil font-display mt-5 text-5xl leading-none font-light`,
+                className: `font-display mt-5 flex flex-col items-center text-5xl leading-none font-light`,
                 children: [
-                  $.groom.name,
                   (0, O.jsx)(`span`, {
-                    className: `font-script text-gold/80 mx-3 text-3xl`,
+                    className: `text-gold-foil`,
+                    children: $.groom.name,
+                  }),
+                  (0, O.jsx)(`span`, {
+                    className: `font-script text-gold/80 my-1 text-3xl`,
                     children: `&`,
                   }),
-                  $.bride.name,
+                  (0, O.jsx)(`span`, {
+                    className: `text-gold-foil`,
+                    children: $.bride.name,
+                  }),
                 ],
               }),
               (0, O.jsx)(`span`, { className: `rule-gold mt-6 w-32` }),
@@ -999,7 +1316,14 @@ function __({ onOpen: e }) {
                     },
                     children: (0, O.jsxs)(`span`, {
                       className: `font-script text-emerald-ink text-3xl leading-none`,
-                      children: [$.groom.name[0], $.bride.name[0]],
+                      children: [
+                        $.groom.name[0],
+                        (0, O.jsx)(`span`, {
+                          style: { fontSize: `0.6em`, margin: `0 1px` },
+                          children: `&`,
+                        }),
+                        $.bride.name[0],
+                      ],
                     }),
                   }),
                 ],
@@ -1053,6 +1377,7 @@ function S_() {
             (0, O.jsx)(s_, {}),
             (0, O.jsx)(d_, {}),
             (0, O.jsx)(h_, {}),
+            (0, O.jsx)(L_, {}),
             (0, O.jsx)(g_, {}),
           ],
         }),

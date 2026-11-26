@@ -326,10 +326,11 @@ function Rings() {
           }),
         ],
       }),
-      (0, O.jsxs)(Q.g, {
+      [0, 50].map((dx, k) =>
+      (0, O.jsx)(`g`, { transform: `translate(${dx} 0)`, children: (0, O.jsxs)(Q.g, {
         initial: { opacity: 0, y: -14, scale: 0.6 },
         animate: { opacity: 1, y: 0, scale: 1 },
-        transition: { delay: 2.9, type: `spring`, stiffness: 180, damping: 12 },
+        transition: { delay: 2.9 + k * 0.25, type: `spring`, stiffness: 180, damping: 12 },
         style: { originX: `95px`, originY: `50px` },
         children: [
           (0, O.jsx)(`path`, {
@@ -346,7 +347,7 @@ function Rings() {
             strokeWidth: 1,
           }),
         ],
-      }),
+      }) }, dx)),
       [
         [60, 40, 0],
         [186, 50, 0.5],

@@ -439,7 +439,7 @@ function t_() {
                 children: [
                   (0, O.jsx)(`span`, {
                     className: `text-gold-foil font-display text-[4.25rem] font-light`,
-                    children: $.groom.name,
+                    children: $.bride.name,
                   }),
                   (0, O.jsx)(`span`, {
                     className: `font-script text-gold/80 my-1 text-3xl`,
@@ -447,7 +447,7 @@ function t_() {
                   }),
                   (0, O.jsx)(`span`, {
                     className: `text-gold-foil font-display text-[4.25rem] font-light`,
-                    children: $.bride.name,
+                    children: $.groom.name,
                   }),
                 ],
               }),
@@ -655,8 +655,8 @@ function s_() {
               (0, O.jsx)(n_, {
                 speed: 26,
                 children: (0, O.jsx)(o_, {
-                  person: $.groom,
-                  role: `The Groom`,
+                  person: $.bride,
+                  role: `The Bride`,
                 }),
               }),
               (0, O.jsx)(`div`, {
@@ -669,8 +669,8 @@ function s_() {
               (0, O.jsx)(n_, {
                 speed: -26,
                 children: (0, O.jsx)(o_, {
-                  person: $.bride,
-                  role: `The Bride`,
+                  person: $.groom,
+                  role: `The Groom`,
                   flip: !0,
                 }),
               }),
@@ -800,7 +800,7 @@ function p_() {
       `DTSTAMP:${f_(new Date().toISOString())}`,
       `DTSTART:${f_($.dateISO)}`,
       `DTEND:${f_($.endISO)}`,
-      `SUMMARY:${$.groom.name} & ${$.bride.name} — Engagement`,
+      `SUMMARY:${$.bride.name} & ${$.groom.name} — Engagement`,
       `LOCATION:${$.venue.name}\\, ${$.venue.address.replace(/,/g, `\\,`)}`,
       `DESCRIPTION:Engagement ceremony at 10:00 AM. Lunch to follow.\\n${$.venue.mapUrl}`,
       `END:VEVENT`,
@@ -810,7 +810,7 @@ function p_() {
     t = URL.createObjectURL(new Blob([e], { type: `text/calendar` })),
     n = document.createElement(`a`);
   ((n.href = t),
-    (n.download = `siddhesh-shivani-engagement.ics`),
+    (n.download = `shivani-siddhesh-engagement.ics`),
     n.click(),
     URL.revokeObjectURL(t));
 }
@@ -1432,14 +1432,14 @@ function g_() {
                 (0, O.jsxs)(`p`, {
                   className: `text-ivory font-display mt-6 text-3xl font-light`,
                   children: [
-                    $.groom.name,
+                    $.bride.name,
                     ` `,
                     (0, O.jsx)(`span`, {
                       className: `font-script text-gold`,
                       children: `&`,
                     }),
                     ` `,
-                    $.bride.name,
+                    $.groom.name,
                   ],
                 }),
                 (0, O.jsx)(`p`, {
@@ -1523,7 +1523,7 @@ function __({ onOpen: e }) {
                 children: [
                   (0, O.jsx)(`span`, {
                     className: `text-gold-foil`,
-                    children: $.groom.name,
+                    children: $.bride.name,
                   }),
                   (0, O.jsx)(`span`, {
                     className: `font-script text-gold/80 my-1 text-3xl`,
@@ -1531,7 +1531,7 @@ function __({ onOpen: e }) {
                   }),
                   (0, O.jsx)(`span`, {
                     className: `text-gold-foil`,
-                    children: $.bride.name,
+                    children: $.groom.name,
                   }),
                 ],
               }),
@@ -1566,12 +1566,12 @@ function __({ onOpen: e }) {
                     children: (0, O.jsxs)(`span`, {
                       className: `font-script text-emerald-ink text-3xl leading-none`,
                       children: [
-                        $.groom.name[0],
+                        $.bride.name[0],
                         (0, O.jsx)(`span`, {
                           style: { fontSize: `0.6em`, margin: `0 1px` },
                           children: `&`,
                         }),
-                        $.bride.name[0],
+                        $.groom.name[0],
                       ],
                     }),
                   }),
